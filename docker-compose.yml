@@ -5,7 +5,7 @@ services:
       context: ./server
     container_name: express
     expose:
-      - '3000'
+      - '3000:3000'
     volumes:
       - ./source:/source
       - /source/node_modules
