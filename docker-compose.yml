@@ -4,7 +4,7 @@ services:
     build:
       context: ./server
     container_name: express
-    expose:
+    ports:
       - '3000:3000'
     volumes:
       - ./source:/source
