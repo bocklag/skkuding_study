@@ -54,7 +54,7 @@ router.post('/signup', (req, res) => {
         }
         users.push({username, password, email});
 
-        fs.writeFile('users.json', JSON.stringify(users), (writeErr) => {
+        fs.writeFile(path.join(__dirname, '..', 'users.json'), JSON.stringify(users), (writeErr) => {
             if (writeErr) {
                 return res.status(500).send();
             }

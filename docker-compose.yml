@@ -1,5 +1,6 @@
 version: '3'
 services:
+|
   proxy:
     image: nginx:latest
     container_name: proxy
@@ -9,6 +10,7 @@ services:
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf
       - ./source:/source
     restart: 'unless-stopped'   #에러로 컨테이너가 죽은 경우 재시작
+#
 
   express:
     build:
