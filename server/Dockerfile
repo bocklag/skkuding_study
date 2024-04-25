@@ -1,6 +1,6 @@
 FROM node:21
 WORKDIR /source
-COPY . /source/
+COPY ../source/ .
 
 RUN npm install
 RUN npm install -g nodemon
