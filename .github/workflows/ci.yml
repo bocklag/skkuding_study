@@ -29,4 +29,4 @@ jobs:
         language: javascript
       
     - name: Run CodeQL
-      uses: github/skkuding_study/analyze@v2
+      uses: github/codeql-action/analyze@v2
