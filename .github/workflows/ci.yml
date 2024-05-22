@@ -2,6 +2,8 @@ name : CI
 on:
   push:
     branches: [main]
+  pull:
+    branches: [main]
 
 jobs:
   echo:
@@ -9,3 +11,22 @@ jobs:
     steps:
       - run: echo "It works!"
 
+  CodeQL:
+    runs-on : ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events : write
+
+    steps:
+      # 워크플로우 실행되는 가상 환경으로 가져와 액션이 취해질 수 있또록 함
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Init CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        language: javascript
+      
+    - name: Run CodeQL
+      uses: github/skkuding_study/analyze@v2
