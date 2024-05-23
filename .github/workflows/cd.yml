@@ -1,0 +1,31 @@
+name: S3_CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  S3_SYNC:
+  - name: AWS S3 Sync
+    runs-on: ubuntu-latest
+
+    #뭐지
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    #OpenID Connect를 통한 로그인
+    #ARN 주소만으로 로그인이 가능해져서 안심
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: arn:aws:iam::471112777527:role/DH1-github-OpenID
+        aws-region: ap-northeast-2
+
+    - name: Sync Files to S3
+      run: aws s3 sync ./infra/contents s3://skkuding-dh-s3/forWeek8/
+
