@@ -6,7 +6,7 @@ on:
 
 jobs:
   S3_SYNC:
-  - name: AWS S3 Sync
+    name: AWS S3 Sync
     runs-on: ubuntu-latest
 
     #뭐지
