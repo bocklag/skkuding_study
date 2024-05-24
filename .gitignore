@@ -1,2 +1,4 @@
 # AWS 키 값
 infra/aws-provider.tf
+infra/terraform.trstate
+infra/terraform.tfstate.backup
